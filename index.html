@@ -108,21 +108,23 @@ and (orientation: portrait) {
   <script>
     // Display the current time in Warangal
     function displayTime() {
-  var now = new Date();
-  var offset = 0; // Warangal is 5.5 hours ahead of UTC
-  var warangalTime = new Date(now.getTime() + offset * 3600 * 1000);
-  var hours = warangalTime.getHours();
-  var minutes = warangalTime.getMinutes();
-  var ampm = hours >= 12 ? 'PM' : 'AM';
-  hours = hours % 12;
-  hours = hours ? hours : 12; // the hour '0' should be '12'
-  minutes = minutes < 10 ? '0'+minutes : minutes;
-  var strTime = hours + ':' + minutes + ' ' + ampm;
-  var date = warangalTime.toLocaleDateString();
-  document.getElementById('time').innerHTML = date + ' ' + strTime;
+var now = new Date();
+var offset = 0; // Warangal is 5.5 hours ahead of UTC
+var warangalTime = new Date(now.getTime() + offset * 3600 * 1000);
+var weekDay = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+var day = weekDay[warangalTime.getDay()];
+var hours = warangalTime.getHours();
+var minutes = warangalTime.getMinutes();
+var ampm = hours >= 12 ? 'PM' : 'AM';
+hours = hours % 12;
+hours = hours ? hours : 12; // the hour '0' should be '12'
+minutes = minutes < 10 ? '0'+minutes : minutes;
+var strTime = hours + ':' + minutes + ' ' + ampm;
+var date = warangalTime.toLocaleDateString();
+document.getElementById('time').innerHTML = day+ ' ' + date + ' ' + strTime ;
 }
 
-    setInterval(displayTime, 1000); // Update the time every second
+setInterval(displayTime, 1000); // Update the time every second
     
     // Load the tasks from local storage
     var tasks = localStorage.getItem('tasks');
@@ -142,11 +144,7 @@ document.getElementById('dark-mode-btn').addEventListener('click', function() {
   document.body.classList.toggle('dark-mode');
 });
 
-document.addEventListener("keydown", function(event) {
-if (event.code === "KeyD") {
-document.querySelector("#dark-mode-btn").click();
-}
-});
+
 
 const darkModeButton = document.getElementById('dark-mode-btn');
 
