@@ -36,11 +36,33 @@
       resize: none;
       font-family: 'Bebas Neue', sans-serif;
     }
+
+
+    body.dark-mode {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+.dark-mode .container {
+  background-color: rgb(10, 12, 12);
+  box-shadow: 0 0 25px rgba(221, 217, 217, 0);
+}
+
+.dark-mode .write-pad {
+  background-color: rgb(59, 59, 59);
+  color: white;
+  border-color: rgb(255, 255, 255);
+}
+.pink{
+  color: transparent;
+  background-color: transparent;
+}
   </style>
 </head>
-<body>
+<body><button id="dark-mode-btn" class="pink">Dark Mode</button>
   <div class="container">
-    <div class="time">
+    <div class="time"> 
+
       <span id="time"></span>
     </div>
     <textarea class="write-pad" id="tasks"></textarea>
@@ -75,6 +97,13 @@
     textarea.addEventListener('input', function() {
       localStorage.setItem('tasks', textarea.value);
     });
+
+    // Add an event listener for the click event on the button
+document.getElementById('dark-mode-btn').addEventListener('click', function() {
+  // Toggle the "dark-mode" class on the body element
+  document.body.classList.toggle('dark-mode');
+});
+
   </script>
 </body>
 </html>
