@@ -37,7 +37,14 @@
       font-family: 'Bebas Neue', sans-serif;
     
   overflow: auto;
-  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+
+.write-pad::-webkit-scrollbar {
+  display: none;
+}
+
 
     }
 
