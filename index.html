@@ -185,6 +185,16 @@ if (darkModeSetting === 'enabled') {
   document.body.classList.add('dark-mode');
   darkModeButton.setAttribute('checked', 'checked');
 }
+    document.addEventListener("keydown", event => {
+  if (event.altKey && event.key === "t") {
+    document.getElementById("tasks").value += "✅";
+  } 
+});
+document.addEventListener("keydown", event => {
+  if (event.altKey && event.key === "c") {
+    document.getElementById("tasks").value += "❌";
+  } 
+});
 
   </script>
 </body>
