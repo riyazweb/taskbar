@@ -53,7 +53,21 @@
   overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+
+  placeholder {
+    /* Style for placeholder on desktop screens */
+  }
 }
+
+@media screen and (max-device-width: 480px) and (orientation: portrait) {
+  .write-pad {
+    /* Style for mobile screens in portrait orientation */
+    placeholder {
+      display: none; /* Hide placeholder on mobile screens in portrait orientation */
+    }
+  }
+}
+
 
 
 .write-pad::-webkit-scrollbar {
